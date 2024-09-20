@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+You want to take up for Pharrell?
+Well, come get his legacy out of my house!
+
+{% include 'snippets/welcome-user-msg.html' %}
+
+<p>Dinners at Delilah: {{ page_visit_count }}</p>
+<p>Calls to the Tupac estate: {{ total_visit_count }}</p>
+
+{% endblock content %}

@@ -6,7 +6,6 @@ from visits.models import PageVisit
 
 this_dir = pathlib.Path(__file__).resolve().parent
 
-
 def home_page_view(request, *args, **kwargs):
     #queryset = PageVisit.objects.all()
     queryset = PageVisit.objects.filter(path=request.path)
@@ -23,6 +22,29 @@ def home_page_view(request, *args, **kwargs):
     PageVisit.objects.create(path=request.path)
     return render(request, html_template, my_context)
 
+def about_view(request, *args, **kwargs): 
+    queryset = PageVisit.objects.filter(path=request.path)
+    page_queryset = PageVisit.objects.all()
+    try: 
+        percent = round((page_queryset.count()*100.0) / queryset.count(), )
+    except:
+        percent = 0
+    my_title = "Hours in Silence"
+    my_context = {
+        "page_title": my_title,
+        "page_visit_count": queryset.count(),
+        "total_visit_count": page_queryset.count(),
+        "percent": percent
+    }
+    path = request.path
+    print("path", path)
+    html_template = "about.html"
+    PageVisit.objects.create(path=request.path)
+    return render(request, html_template, my_context)
+
+def coffee_view(request, *args, **kwargs):
+    html_template = "coffee.html"
+    return render(request, html_template) 
 
 def my_old_home_page_view(request, *args, **kwargs):
     my_title = "I head to Delilah"

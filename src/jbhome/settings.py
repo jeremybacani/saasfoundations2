@@ -9,12 +9,15 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# DEBUG = os.environ.get("DEBUG") or 0 
+DEBUG = str(os.environ.get("DJANGO_DEBUG")).lower() == "true"
+print("DEBUG", DEBUG, type(DEBUG))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -32,7 +35,7 @@ ALLOWED_HOSTS = [
 if DEBUG: 
     ALLOWED_HOSTS += [
         "127.0.0.1",
-        'localhost'
+        "localhost"
     ]
 
 # Application definition

@@ -41,7 +41,7 @@ COPY requirements.txt /tmp/requirements.txt
 COPY ./src /code
 
 # Install the Python project requirements
-RUN pip install -r /tmp/requirements.txt
+RUN pip install -r ./requirements.txt
 RUN pip install gunicorn
 
 # database isn't available during build

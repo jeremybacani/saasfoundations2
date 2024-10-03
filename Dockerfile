@@ -41,7 +41,7 @@ COPY requirements.txt /tmp/requirements.txt
 COPY ./src /code
 
 # Install the Python project requirements
-RUN pip install -r ./requirements.txt
+RUN pip install Django==4.2.16
 RUN pip install gunicorn
 
 # database isn't available during build

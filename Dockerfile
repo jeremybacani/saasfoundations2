@@ -43,6 +43,7 @@ COPY ./src /code
 # Install the Python project requirements
 RUN pip install Django==4.2.16
 RUN pip install gunicorn
+RUN pip install python-decouple
 
 # database isn't available during build
 # run any other commands that do not need the database

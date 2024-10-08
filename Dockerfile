@@ -44,6 +44,8 @@ COPY ./src /code
 RUN pip install Django==4.2.16
 RUN pip install gunicorn
 RUN pip install python-decouple
+RUN pip install psycopg[binary]
+RUN pip install dj-database-url
 
 # database isn't available during build
 # run any other commands that do not need the database

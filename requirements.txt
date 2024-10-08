@@ -1,2 +1,5 @@
-Django==4.2.16
+Django
 gunicorn
+python-decouple
+psycopg[binary]
+dj-database-url
